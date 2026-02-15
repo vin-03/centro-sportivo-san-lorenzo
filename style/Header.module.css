@@ -1,0 +1,331 @@
+/* ============================================
+   HEADER BASE
+   ============================================ */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e7e5e4;
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding: 1rem 2.5rem;
+    }
+}
+
+/* ============================================
+   BRAND / LOGO
+   ============================================ */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+}
+
+.brand:hover {
+    opacity: 0.8;
+}
+
+.icon {
+    font-size: 2.25rem !important; /* 36px */
+    color: #1e40af; /* primary blue */
+    transition: transform 0.3s ease;
+}
+
+.brand:hover .icon {
+    transform: rotate(15deg) scale(1.05);
+}
+
+.brandText {
+    display: flex;
+    flex-direction: column;
+}
+
+.brandTitle {
+    color: #1c1917;
+    font-size: 1.25rem; /* 20px */
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+:global(.dark) .brandTitle {
+    color: #ffffff;
+}
+
+.brandSubtitle {
+    font-size: 0.625rem; /* 10px */
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #78716c;
+    font-weight: 700;
+    margin: 0.125rem 0 0 0;
+}
+
+@media (max-width: 768px) {
+    .brand:hover .icon {
+        transform: none;
+    }
+    .brand:hover {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   NAV DESKTOP
+   ============================================ */
+
+.navDesktop {
+    display: none;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .navDesktop {
+        display: flex;
+    }
+}
+
+.navList {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navLink {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    color: #1c1917;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    transition: color 0.2s ease;
+    padding: 0.5rem 0;
+}
+
+:global(.dark) .navLink {
+    color: #fafaf9;
+}
+
+.navLink::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #1e40af;
+    transition: width 0.3s ease;
+}
+
+.navLink:hover {
+    color: #1e40af;
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   WHATSAPP BUTTON DESKTOP
+   ============================================ */
+
+.whatsappBtn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #25d366;
+    color: white;
+    font-size: 0.75rem; /* 12px */
+    font-weight: 700;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.125rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.whatsappBtn:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.whatsappBtn span {
+    font-size: 1.125rem !important; /* 18px */
+}
+
+@media (min-width: 768px) {
+    .whatsappBtn {
+        display: flex;
+    }
+}
+
+/* ============================================
+   HAMBURGER BUTTON
+   ============================================ */
+
+.hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #1c1917;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+:global(.dark) .hamburger {
+    color: #fafaf9;
+}
+
+.hamburger:hover {
+    color: #1e40af;
+}
+
+.hamburger span {
+    font-size: 1.875rem !important; /* 30px */
+}
+
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+/* ============================================
+   NAV MOBILE
+   ============================================ */
+
+.navMobile {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e7e5e4;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 40;
+}
+
+:global(.dark) .navMobile {
+    background: rgba(12, 10, 9, 0.98);
+    border-bottom-color: #292524;
+}
+
+.navMobile.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobileNavList {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.mobileNavLink {
+    display: block;
+    color: #1c1917;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f5f5f4;
+    transition: all 0.2s ease;
+}
+
+:global(.dark) .mobileNavLink {
+    color: #fafaf9;
+    border-bottom-color: #292524;
+}
+
+.mobileNavLink:hover {
+    color: #1e40af;
+    padding-left: 0.5rem;
+}
+
+.mobileWhatsappBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #25d366;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.125rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.mobileWhatsappBtn:hover {
+    filter: brightness(1.05);
+}
+
+.mobileWhatsappBtn span {
+    font-size: 1.25rem !important;
+}
+
+@media (min-width: 768px) {
+    .navMobile {
+        display: none;
+    }
+}
+
+/* ============================================
+   SCROLL EFFECT (opzionale)
+   ============================================ */
+
+.header.scrolled {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}

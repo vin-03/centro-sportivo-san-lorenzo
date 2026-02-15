@@ -1,12 +1,15 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// import Hero from "../components/Hero";
+// import Activities from "../components/Activities";
+// import About from "../components/About";
+// import Contact from "../components/Contact";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <h1>Hello San Lorenzo</h1>
-      </main>
-    </div>
-  );
+    return (
+        <main>
+            {/* <Hero /> */}
+            {/* <Activities /> */}
+            {/* <About /> */}
+            {/* <Contact /> */}
+        </main>
+    );
 }
