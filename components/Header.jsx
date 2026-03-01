@@ -20,6 +20,7 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.container}>
+
                 {/* Logo */}
                 <div className={styles.brand}>
                     <span className={`material-icons ${styles.icon}`}>
@@ -27,9 +28,8 @@ export default function Header() {
                     </span>
                     <div className={styles.brandText}>
                         <h2 className={styles.brandTitle}>SAN LORENZO</h2>
-                        <p className={styles.brandSubtitle}>Centro Sportivo</p>
+                        <p className={styles.brandSubtitle}>CENTRO SPORTIVO</p>
                     </div>
-
                 </div>
 
                 {/* Link nav desktop */}
@@ -46,6 +46,13 @@ export default function Header() {
                 </nav>
 
                 {/* Hamburger button */}
+                <button
+                    className={`${styles.burgerButton} ${isOpen ? styles.open : ''}`}
+                    onClick={toggleMenu}
+                    aria-label="toggle menu"
+                >
+                    <span className={styles.burgerIcon}></span>
+                </button>
             </div>
 
             {/* NavMobile */}

@@ -25,6 +25,7 @@
     align-items: center;
     justify-content: space-between;
     white-space: nowrap;
+    border: 1px solid red;
 }
 
 @media (min-width: 640px) {
@@ -41,7 +42,6 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    text-decoration: none;
     transition: opacity 0.2s ease;
     cursor: pointer;
 }
@@ -60,11 +60,6 @@
     transform: rotate(15deg) scale(1.05);
 }
 
-.brandText {
-    display: flex;
-    flex-direction: column;
-}
-
 .brandTitle {
     color: #1c1917;
     font-size: 1.25rem; /* 20px */
@@ -72,16 +67,10 @@
     line-height: 1;
     letter-spacing: -0.025em;
     margin: 0;
-    text-transform: uppercase;
-}
-
-:global(.dark) .brandTitle {
-    color: #ffffff;
 }
 
 .brandSubtitle {
     font-size: 0.625rem; /* 10px */
-    text-transform: uppercase;
     letter-spacing: 0.15em;
     color: #78716c;
     font-weight: 700;
@@ -136,10 +125,6 @@
     padding: 0.5rem 0;
 }
 
-:global(.dark) .navLink {
-    color: #fafaf9;
-}
-
 .navLink::after {
     content: "";
     position: absolute;
@@ -148,7 +133,7 @@
     width: 0;
     height: 2px;
     background: #1e40af;
-    transition: width 0.3s ease;
+    transition: width 0.2s ease;
 }
 
 .navLink:hover {
@@ -160,66 +145,53 @@
 }
 
 /* ============================================
-   WHATSAPP BUTTON DESKTOP
-   ============================================ */
-
-.whatsappBtn {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: #25d366;
-    color: white;
-    font-size: 0.75rem; /* 12px */
-    font-weight: 700;
-    padding: 0.625rem 1.25rem;
-    border-radius: 0.125rem;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-}
-
-.whatsappBtn:hover {
-    filter: brightness(1.05);
-    transform: translateY(-1px);
-}
-
-.whatsappBtn span {
-    font-size: 1.125rem !important; /* 18px */
-}
-
-@media (min-width: 768px) {
-    .whatsappBtn {
-        display: flex;
-    }
-}
-
-/* ============================================
    HAMBURGER BUTTON
    ============================================ */
 
-.hamburger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    color: #1c1917;
+.burgerButton {
     cursor: pointer;
-    padding: 0.5rem;
-    transition: color 0.2s ease;
+    padding: 28px 20px;
 }
 
-:global(.dark) .hamburger {
-    color: #fafaf9;
+.burgerIcon {
+    background-color: #1c1917;
+    height: 2px;
+    width: 18px;
+    display: block;
+    position: relative;
+    transition: background-color 0.02s ease-out;
 }
 
-.hamburger:hover {
-    color: #1e40af;
+.burgerIcon::before,
+.burgerIcon::after {
+    content: "";
+    background-color: #1c1917;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.1s ease-out;
 }
 
-.hamburger span {
-    font-size: 1.875rem !important; /* 30px */
+.burgerIcon::before {
+    top: 5px;
+}
+.burgerIcon::after {
+    top: -5px;
+}
+
+.open {
+    .burgerIcon {
+        background-color: transparent;
+    }
+    .burgerIcon::before {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+    .burgerIcon::after {
+        transform: rotate(45deg);
+        top: 0;
+    }
 }
 
 @media (min-width: 768px) {
@@ -246,11 +218,6 @@
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 40;
-}
-
-:global(.dark) .navMobile {
-    background: rgba(12, 10, 9, 0.98);
-    border-bottom-color: #292524;
 }
 
 .navMobile.open {
@@ -281,35 +248,9 @@
     transition: all 0.2s ease;
 }
 
-:global(.dark) .mobileNavLink {
-    color: #fafaf9;
-    border-bottom-color: #292524;
-}
-
 .mobileNavLink:hover {
     color: #1e40af;
     padding-left: 0.5rem;
-}
-
-.mobileWhatsappBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: #25d366;
-    color: white;
-    font-size: 0.875rem;
-    font-weight: 700;
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 0.125rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 0.2s ease;
-}
-
-.mobileWhatsappBtn:hover {
-    filter: brightness(1.05);
 }
 
 .mobileWhatsappBtn span {
