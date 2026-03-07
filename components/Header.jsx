@@ -11,10 +11,10 @@ export default function Header() {
     };
 
     const navLinks = [
-        { href: "/", label: "Home" },
-        { href: "/chi-siamo", label: "Chi Siamo" },
-        { href: "/corsi", label: "Corsi" },
-        { href: "/contatti", label: "Contatti" },
+        { href: "#", label: "Home" },
+        { href: "#chi-siamo", label: "Chi Siamo" },
+        { href: "#corsi", label: "Corsi" },
+        { href: "#contatti", label: "Contatti" },
     ];
 
     return (
@@ -56,10 +56,10 @@ export default function Header() {
             </div>
 
             {/* NavMobile */}
-            <nav className={styles.navMobile}>
-                <ul>
+            <nav className={`${styles.navMobile} ${isOpen ? styles.open : ''}`}>
+                <ul className={styles.mobileNavLinks}>
                     {navLinks.map((link) => (
-                        <li key={link.href}>
+                        <li key={link.href} className={styles.mobileNavLink}>
                             <a href={link.href}>{link.label}</a>
                         </li>
                     ))}

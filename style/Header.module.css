@@ -9,8 +9,7 @@
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid #e7e5e4;
-    transition: all 0.3s ease;
+    width: 100%;
 }
 
 /* ============================================
@@ -25,7 +24,7 @@
     align-items: center;
     justify-content: space-between;
     white-space: nowrap;
-    /* border: 1px solid red; */
+    border-bottom: 1px solid #e7e5e4;
 }
 
 @media (min-width: 640px) {
@@ -153,6 +152,7 @@
     padding: 28px 20px;
     border: none;
     background: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 @media (min-width: 768px) {
@@ -213,19 +213,13 @@
    ============================================ */
 
 .navMobile {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid #e7e5e4;
-    transform: translateY(-100%);
+    transform: translateY(-10px);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 40;
+    width: 100%;
+    transition: all 0.2s ease;
+    background: white;
+    border-bottom: 1px solid #e7e5e4;
 }
 
 .navMobile.open {
@@ -234,47 +228,66 @@
     visibility: visible;
 }
 
-.mobileNavList {
-    list-style: none;
-    margin: 0;
+.mobileNavLink {
+    border-bottom: 1px solid #e7e5e4;
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    text-align: center;
+}
+
+.mobileNavLink a {
+    display: block;
+    color: #1c1917;
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .navMobile {
+        display: none !important;
+    }
+}
+
+/* .navMobile {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #e7e5e4;
+}
+
+.navMobile.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
 }
 
 .mobileNavLink {
-    display: block;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #f5f5f4;
+}
+
+.mobileNavLink a {
     color: #1c1917;
     text-decoration: none;
-    font-size: 1rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 1rem 0;
-    border-bottom: 1px solid #f5f5f4;
-    transition: all 0.2s ease;
-}
-
-.mobileNavLink:hover {
-    color: #1e40af;
-    padding-left: 0.5rem;
-}
-
-.mobileWhatsappBtn span {
-    font-size: 1.25rem !important;
+    font-size: 0.875rem;
 }
 
 @media (min-width: 768px) {
     .navMobile {
         display: none;
     }
-}
+} */
 
 /* ============================================
    SCROLL EFFECT (opzionale)
    ============================================ */
 
-.header.scrolled {
+/* .header.scrolled {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
+} */
